@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Список фильмов{% endblock %}
+
+{% block content %}
+<section class="movie-list">
+    <div class="container">
+        <h1 class="title">Список фильмов</h1>
+        <div class="movie-row">
+            {% for movie in movies %}
+            <div class="card">
+                <div class="card-image">
+                    <figure class="image is-3by4" >
+                        <img src="{{ movie.cover.url }}" alt="{{ movie.name }}" />
+                    </figure>
+                </div>
+                <div class="card-content">
+                    <div class="content">
+                        <h4>{{ movie.name }}</h4>
+                        <a href="{% url 'read_movie' pk=movie.pk %}" class="button is-success">Подробнее</a>
+                        <a href="{% url 'update_movie' pk=movie.pk %}" class="button is-warning">Изменить</a>
+                        <a href="{% url 'delete_movie' pk=movie.pk %}" class="button is-danger">Удалить</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

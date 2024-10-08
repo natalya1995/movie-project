@@ -1,0 +1,49 @@
+{% load static %} 
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="{% static './bulma.min.css' %}"> 
+    <link rel="stylesheet" href="{% static './style.css' %}"> 
+    <title>{% block title %}{% endblock %}</title> 
+</head> 
+<body> 
+    <nav class="navbar is-warning is-large" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://bulma.io">
+          КИНО
+          <br>
+          KZ
+          </a>
+      
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+      
+        <div id="navbarBasicExample" class="navbar-menu">
+      
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                <a href="{% url 'movies_page'%}" class="button is-light">
+                  <strong>Все фильмы</strong>
+                </a>
+                <a href="{% url 'create_movie'%}" class="button is-light">
+                  Добавить
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    {% block content %} 
+    
+    {% endblock %} 
+</body> 
+</html>

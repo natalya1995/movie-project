@@ -1,0 +1,15 @@
+.movie-list{
+    padding: 120px 0;
+   
+}
+
+.movie-row{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap:20px;
+}
+.title{
+    text-align: center;
+    font-size:50px; 
+    
+}

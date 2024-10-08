@@ -1,0 +1,33 @@
+{% extends 'base.html' %} 
+{% load crispy_forms_tags %}
+{% block title %}{{book.name}}{% endblock %} 
+ 
+{% block content %} 
+<section class="movie-list"> 
+    <div class="container" style=" width: 50%;"> 
+        <article class="media">
+            <figure class="media-left">
+              <p class="image is-144x144">
+                <img src="{{movie.cover.url}}" alt="{{movie.name}}">
+              </p>
+            </figure>
+            <div class="media-content">
+              <div class="content">
+                <h1>
+                 Название: {{movie.name}}</h1> <p>Режиссер: <small>{{movie.director}}</small>  <br /> Год: <small>{{movie.year}}</small> </p>
+                  <br />
+                  <p style="font-size:larger;"> Действительно хотите удалить {{movie.name}}?
+            </p>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="button is-danger">Да</button>
+                <a href="{% url 'movies_page'%}" class="button is-info">Нет</a>
+             </form>
+              </div>
+            </div>
+          </article>
+   
+   
+    </div> 
+</section> 
+{% endblock %}

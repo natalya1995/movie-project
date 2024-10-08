@@ -1,0 +1,30 @@
+{% extends 'base.html' %} 
+{% load crispy_forms_tags %}
+{% block title %}{{movie.name}}{% endblock %} 
+ 
+{% block content %} 
+
+<section class="movie-list" > 
+    <div class="container" style=" width: 50%;"> 
+        <article class="media">
+            <figure class="media-left">
+              <p class="image is-144x144">
+                <img src="{{movie.cover.url}}" alt="{{movie.name}}">
+              </p>
+            </figure>
+            <div class="media-content">
+              <div class="content">
+                <h1>
+                 Название: {{movie.name}}</h1> <p>Режиссер: <small>{{movie.director}}</small>  <br /> Год: <small>{{movie.year}}</small> </p>
+                  <br />
+                  <h2>Описание:</h2>
+                  <p style="font-size:larger;"> 
+               {{movie.description}}
+            </p>
+              </div>
+            </div>
+          </article>
+   
+    </div> 
+</section> 
+{% endblock %}
